@@ -3,8 +3,6 @@ include("cabecalho.php");
 include("conexao.php");
 include("cliente-banco.php");
 
-
-///Ve se nao ta vazio
 if(isset($_POST["id"]) && isset($_POST["nome"]) && isset($_POST["telefone"]) &&
 	!empty($_POST["id"]) && !empty($_POST["nome"]) && !empty($_POST["telefone"])) {
 	$id = $_POST['id'];

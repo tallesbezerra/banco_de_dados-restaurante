@@ -7,7 +7,7 @@ $clientes = listaClientes($conexao);
 ?>
 <h1>Lista de Clientes</h1>
 
-<?php //Funcoes só pra alerta
+<?php //Funções para alertar alterações na tabela cliente_cadastrado
 if(array_key_exists("cli_cad", $_GET) && $_GET['cli_cad']=='true') { ?>
 	<p class="alert-success">Cliente cadastrado com sucesso.</p>
 <?php }

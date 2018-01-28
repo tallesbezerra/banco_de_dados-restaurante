@@ -4,8 +4,8 @@ include("conexao.php");
 include("cliente-banco.php");
 
 
-//verifica se é generico ou nao e
-//ve se nao ta vazio e manda pra funcao no cliente-banco.php
+//verifica se é genérico ou nao e
+//vê se não está vazio e manda pra função no cliente-banco.php
 if($_POST["generico"]){
 	if(isset($_POST["descricao"]) && !empty($_POST["descricao"])){
 		$descricao = $_POST["descricao"];

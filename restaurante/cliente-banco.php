@@ -9,6 +9,7 @@ function insereCliente($conexao, $nome, $telefone) {
 }
 
 function insereGenerico($conexao, $descricao) {
+	//mesma coisa com o genérico
 	$query1 = "insert into cliente (id_cliente) values ('NULL')";
 	mysqli_query($conexao, $query1);
 	$query2 = "insert into cliente_generico (id_generico, descricao) values (last_insert_id(), '{$descricao}')";
@@ -17,6 +18,7 @@ function insereGenerico($conexao, $descricao) {
 }
 
 function listaClientes($conexao) {
+	//retorna os nomes na tabela cliente_cadastrado
 	$clientes = array();
 	$resultado = mysqli_query($conexao, "select * from cliente_cadastrado");
 	while($cliente = mysqli_fetch_assoc($resultado)) {
@@ -26,18 +28,20 @@ function listaClientes($conexao) {
 }
 
 function buscaCliente($conexao, $id){
+	//busca o cliente pelo id na tabela cliente_cadastrado
 	$query = "select * from cliente_cadastrado where id_cadastrado = '{$id}'";
 	$resultado = mysqli_query($conexao, $query);
 	return mysqli_fetch_assoc($resultado);
 }
 
 function alteraCliente($conexao, $id, $nome, $telefone) {
+	//altera o cliente pelo id na tabela cliente_cadastrado
 	$query = "update cliente_cadastrado set nome = '{$nome}', telefone = '{$telefone}' where id_cadastrado = '{$id}'";
 	return mysqli_query($conexao, $query);
 }
 
 function removeCliente($conexao, $id){
-	//tem que deletar das duas tabelas
+	//deleta o cliente pelo id na tabela cliente_cadastrado e cliente
 	mysqli_query($conexao, "delete from cliente_cadastrado where id_cadastrado = '{$id}'");
 	$query = "delete from cliente where id_cliente = '{$id}'";
 	return mysqli_query($conexao, $query);
