@@ -27,11 +27,7 @@ if(array_key_exists("cli_nalt", $_GET) && $_GET['cli_nalt']=='true') { ?>
 if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') { ?>
 	<p class="alert-success">Cliente removido com sucesso.</p>
 <?php }
-
-if(array_key_exists("marcado", $_GET) && $_GET['marcado']=='true') { ?>
-	<p class="alert-success">Horário marcado com sucesso.</p>
-<?php } 
-//////?>
+////// ?>
 
 <table class="table table-bordered table-hover">
 	<tr class="active">
@@ -49,17 +45,17 @@ foreach($clientes as $cliente):
 		<td><?=$cliente['telefone']?></td>
 		<td>
 			<form action="cliente-conta.php" method="post">
-			<input type="hidden" name="id" value="<?=$cliente['id_cadastrado']?>"/>
+			<input type="hidden" name="id_cadastrado" value="<?=$cliente['id_cadastrado']?>"/>
 			<button class="btn btn-primary btn-sm btn-block">Ver contas</button></form>
 		</td>
 		<td>
 			<form action="cliente-altera-form.php" method="post">
-			<input type="hidden" name="id" value="<?=$cliente['id_cadastrado']?>"/>
+			<input type="hidden" name="id_cadastrado" value="<?=$cliente['id_cadastrado']?>"/>
 			<button class="btn btn-warning btn-sm btn-block">Alterar</button></form>
 		</td>
 		<td>
 			<form action="cliente-remove.php" method="post">
-			<input type="hidden" name="id" value="<?=$cliente['id_cadastrado']?>"/>
+			<input type="hidden" name="id_cadastrado" value="<?=$cliente['id_cadastrado']?>"/>
 			<button class="btn btn-danger btn-sm btn-block">Remover</button></form>
 		</td>
 	</tr>

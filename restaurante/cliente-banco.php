@@ -1,19 +1,19 @@
 <?php
-function insereCliente($conexao, $nome, $telefone) {
+function insereCliente($conexao, $tipo, $nome, $telefone) {
 	//Insere um id na tabela cliente e com last_insert_id() retorna o id de cliente e utiliza na cliente cadastrado
-	$query1 = "insert into cliente (id_cliente) values ('NULL')";
+	$query1 = "insert into cliente (id_cliente, tipo_cliente) values ('NULL', '$tipo')";
 	mysqli_query($conexao, $query1);
 	$query2 = "insert into cliente_cadastrado (id_cadastrado, nome, telefone) values (last_insert_id(), '{$nome}', '{$telefone}')";
 	$resultadoDaInsercao = mysqli_query($conexao, $query2);
 	return $resultadoDaInsercao;
 }
 
-function insereGenerico($conexao, $descricao) {
+function insereGenerico($conexao, $tipo, $descricao, $id_mesa, $data_conta) {
 	//mesma coisa com o genérico
-	$query1 = "insert into cliente (id_cliente) values ('NULL')";
-	mysqli_query($conexao, $query1);
-	$query2 = "insert into cliente_generico (id_generico, descricao) values (last_insert_id(), '{$descricao}')";
-	$resultadoDaInsercao = mysqli_query($conexao, $query2);
+	mysqli_query($conexao, "insert into cliente (id_cliente, tipo_cliente) values ('NULL', '$tipo')");
+	mysqli_query($conexao, "insert into cliente_generico (id_generico, descricao) values (last_insert_id(), '{$descricao}')");
+	$query = "insert into conta (id_cliente, id_mesa, data_conta, valor, aberta) values (last_insert_id(), '$id_mesa', $data_conta, '0', '1')";
+	$resultadoDaInsercao = mysqli_query($conexao, $query);
 	return $resultadoDaInsercao;
 }
 

@@ -3,7 +3,7 @@ include("cabecalho.php");
 include("conexao.php");
 include("cliente-banco.php");
 
-$id = $_POST['id'];
+$id = $_POST['id_cadastrado'];
 $cliente = buscaCliente($conexao, $id);
 ?>
 
@@ -24,7 +24,7 @@ $cliente = buscaCliente($conexao, $id);
 				<a href="cliente-lista.php" class="btn btn-danger btn-lg" role="button">Cancelar</a></td>
 		</tr>
 	</table>
-	<input type="hidden" name="id" value="<?=$cliente['id_cadastrado']?>" />
+	<input type="hidden" name="id_cadastrado" value="<?=$cliente['id_cadastrado']?>" />
 </form>
 
 <?php include("rodape.php"); ?>

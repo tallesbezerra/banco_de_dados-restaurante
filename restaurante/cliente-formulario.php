@@ -15,6 +15,7 @@ include("conexao.php");
 		</tr>
 		<tr>
 			<td></td>
+			<input type="hidden" name="tipo_cliente" value="cadastrado" />
 			<td><input type="submit" class="btn btn-primary btn-lg" value="Cadastrar" />
 			<a href="index.php" class="btn btn-danger btn-lg" role="button">Cancelar</a></td>
 		</tr>

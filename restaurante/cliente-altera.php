@@ -3,9 +3,9 @@ include("cabecalho.php");
 include("conexao.php");
 include("cliente-banco.php");
 
-if(isset($_POST["id"]) && isset($_POST["nome"]) && isset($_POST["telefone"]) &&
-	!empty($_POST["id"]) && !empty($_POST["nome"]) && !empty($_POST["telefone"])) {
-	$id = $_POST['id'];
+if(isset($_POST["id_cadastrado"]) && isset($_POST["nome"]) && isset($_POST["telefone"]) &&
+	!empty($_POST["id_cadastrado"]) && !empty($_POST["nome"]) && !empty($_POST["telefone"])) {
+	$id = $_POST['id_cadastrado'];
 	$nome = $_POST['nome'];
 	$telefone = $_POST['telefone'];
 	$resultAlteracao = alteraCliente($conexao, $id, $nome, $telefone);

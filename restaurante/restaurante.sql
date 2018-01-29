@@ -1,7 +1,7 @@
-CREATE TABLE cliente(id_cliente int PRIMARY KEY AUTO_INCREMENT);
+CREATE TABLE cliente(id_cliente int PRIMARY KEY AUTO_INCREMENT, tipo_cliente varchar(30) not null);
 
 CREATE TABLE mesa(id_mesa int PRIMARY KEY AUTO_INCREMENT,
-tema varchar(100) not null);
+tema varchar(100) not null, disponivel tinyint not null);
 
 CREATE TABLE cliente_cadastrado(id_cadastrado int NOT null,
 CONSTRAINT FOREIGN KEY (id_cadastrado) REFERENCES cliente(id_cliente),
@@ -14,16 +14,16 @@ descricao varchar(500) NOT null);
 CREATE TABLE conta(id_conta int PRIMARY KEY AUTO_INCREMENT,
 id_cliente int NOT null, CONSTRAINT FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
 id_mesa int NOT null, CONSTRAINT FOREIGN KEY (id_mesa) references mesa(id_mesa),
-data_conta datetime NOT null, valor double NOT null);
+data_conta datetime NOT null, valor double NOT null, aberta tinyint not null);
 
-INSERT INTO `mesa` (`id_mesa`, `tema`) VALUES (NULL, 'Italiana'), (NULL, 'Alemã'), (NULL, 'Brasileira'), 
-(NULL, 'Francesa'), (NULL, 'Japonesa');
+INSERT INTO `mesa` (`id_mesa`, `tema`, `disponivel`) VALUES (NULL, 'Italiana', '1'), (NULL, 'Alemã', '1'), (NULL, 'Brasileira', '1'), 
+(NULL, 'Francesa', '1'), (NULL, 'Japonesa', '1');
 
 CREATE table cardapio(cod_cardapio int PRIMARY KEY AUTO_INCREMENT,
 preco double not null, nome_cardapio varchar(255) not null);
 
 CREATE TABLE pedido(id_pedido int PRIMARY KEY AUTO_INCREMENT, id_cliente int NOT null,
-id_conta int not null, cod_cardapio int NOT null, categoria varchar(255) NOT null,
+id_conta int not null, cod_cardapio int NOT null,
 CONSTRAINT FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
 CONSTRAINT FOREIGN KEY (id_conta) REFERENCES conta(id_conta),
 CONSTRAINT FOREIGN KEY (cod_cardapio) REFERENCES cardapio(cod_cardapio));
