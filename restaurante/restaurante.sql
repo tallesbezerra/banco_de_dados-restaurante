@@ -22,9 +22,7 @@ INSERT INTO `mesa` (`id_mesa`, `tema`, `disponivel`) VALUES (NULL, 'Italiana', '
 CREATE table cardapio(cod_cardapio int PRIMARY KEY AUTO_INCREMENT,
 preco double not null, nome_cardapio varchar(255) not null);
 
-CREATE TABLE pedido(id_pedido int PRIMARY KEY AUTO_INCREMENT, id_cliente int NOT null,
-id_conta int not null, cod_cardapio int NOT null,
-CONSTRAINT FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
+CREATE TABLE pedido(id_pedido int PRIMARY KEY AUTO_INCREMENT, id_conta int not null, cod_cardapio int NOT null,
 CONSTRAINT FOREIGN KEY (id_conta) REFERENCES conta(id_conta),
 CONSTRAINT FOREIGN KEY (cod_cardapio) REFERENCES cardapio(cod_cardapio));
 

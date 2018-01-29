@@ -29,6 +29,8 @@ function contasAbertas($conexao){
 	return $contasAbertas;
 }
 
+
+
 function fechaConta($conexao, $id_conta, $id_mesa){
 	$resultado = mysqli_query($conexao, "update conta set aberta = '0' where id_conta = '$id_conta'");
 	if($resultado)

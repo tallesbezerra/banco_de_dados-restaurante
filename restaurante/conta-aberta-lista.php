@@ -6,13 +6,14 @@ $contas = contasAbertas($conexao);
 ?>
 <h1> Contas Abertas </h1>
 <?php
+
 if(array_key_exists("fechado", $_GET) && $_GET['fechado']=='true') { ?>
 	<p class="alert-success">Conta fechada com sucesso.</p>
 <?php } 
 if(array_key_exists("nfechado", $_GET) && $_GET['nfechado']=='true') { ?>
-	<p class="alert-success">A conta NÃO foi fechada.</p>
+	<p class="alert-danger">A conta NÃO foi fechada.</p>
 <?php } 
-////// ?>
+?>
 <table class="table table-bordered table-hover">
 	<tr class="active">
 		<td>Mesa</td>

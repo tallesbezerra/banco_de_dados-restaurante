@@ -9,7 +9,6 @@ $mesas = listaMesas($conexao);
 <h1> Abrir Conta </h1>
 <form action="conta-cadastro.php" method="post">
 	<table class="table">
-		<input type="hidden" name="tipo" value="cadastrado" />
 		<tr>
 			<td>Cliente</td>
 			<td><select name="id_cadastrado" class="form-control">
