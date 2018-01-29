@@ -1,0 +1,12 @@
+body{
+	padding-top: 50px;
+}
+
+.principal{
+	padding: 40px, 20px;
+	text-align: center;
+	width: 800px;
+	margin: 20px auto;
+	border:10px solid #cccccc;
+
+}
